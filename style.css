@@ -1,0 +1,135 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: grid;
+    min-height: 100vh;
+    grid-template-areas: 
+        "nav"
+        "filtros"
+        "main"
+        "footer";
+    grid-template-rows: auto auto 1fr auto;
+}
+
+
+.navbar {
+    grid-area: nav;
+    background-color: #005691;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.nav-links {
+    display: none; 
+    list-style: none;
+    gap: 15px;
+}
+
+
+.filtros {
+    grid-area: filtros;
+    background-color: #f0f0f0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.productos-grid {
+    grid-area: main;
+    padding: 20px;
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid #eee;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card button {
+    background-color: #005691;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+
+.footer {
+    grid-area: footer;
+    background-color: #003459;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+@media (min-width: 576px) {
+    body {
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas: 
+            "nav nav"
+            "filtros main"
+            "footer footer";
+    }
+
+  
+    .menu-icon {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex;
+    }
+
+
+    .filtros {
+        height: 100%;
+        justify-content: flex-start;
+        border-right: 1px solid #ddd;
+    }
+
+
+    @media (min-width: 992px) {
+        body {
+            grid-template-columns: 250px 1fr;
+            grid-template-areas: 
+                "nav filtros"
+                "nav main"
+                "nav footer";
+        }
+        .navbar {
+            flex-direction: column;
+            justify-content: flex-start;
+            padding-top: 50px;
+        }
+        .nav-links {
+            flex-direction: column;
+            margin-top: 30px;
+        }
+    }
+}
